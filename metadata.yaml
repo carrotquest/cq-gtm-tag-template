@@ -1,5 +1,5 @@
 homepage: "https://www.carrotquest.io"
 documentation: "https://help.carrotquest.io"
 versions:
-  - sha: 37342020ed8d59412e1638e8565374934d945c17
+  - sha: ef5fc16c831cab1a04be3049d1ea5813da5fadd3
     changeNotes: Initial release.
