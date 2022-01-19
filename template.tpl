@@ -33,9 +33,9 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "TEXT",
     "name": "apiKey",
-    "displayName": "Введите apiKey вашего аккаунта",
+    "displayName": "Введите ID сайта",
     "simpleValueType": true,
-    "help": "apiKey аккаунта вы можете скопировать на экране с инструкцией интеграции GTM. Нажмите на кнопку \"Скопировать apiKey\""
+    "help": "ID сайта вы можете скопировать на экране с инструкцией интеграции GTM. Нажмите на кнопку “Скопировать ID сайта”"
   }
 ]
 
@@ -51,7 +51,7 @@ const url = 'https://cdn.carrotquest.app/api.min.js';
 let carrotquest = copyFromWindow('carrotquest');
 
 const onSuccess = () => {
-  callInWindow('carrotquest.connect', data.apiKey);
+  callInWindow('carrotquest.connect', data.apiKey, {token_type: 'web_user_gtm'});
   data.gtmOnSuccess();
 };
 
