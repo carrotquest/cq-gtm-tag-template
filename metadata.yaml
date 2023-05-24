@@ -3,3 +3,5 @@ documentation: "https://help.carrotquest.io"
 versions:
   - sha: b0270598388d86853a4779cde14f1cb4a69f98d7
     changeNotes: Fixed a bug with proxying public methods before running the script.
+  - sha: ef5fc16c831cab1a04be3049d1ea5813da5fadd3
+    changeNotes: Initial release.
