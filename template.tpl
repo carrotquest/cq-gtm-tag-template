@@ -46,6 +46,7 @@ const copyFromWindow = require('copyFromWindow');
 const setInWindow = require('setInWindow');
 const injectScript = require('injectScript');
 const callInWindow = require('callInWindow');
+const createQueue = require('createQueue');
 
 const url = 'https://cdn.carrotquest.app/api.min.js';
 let carrotquest = copyFromWindow('carrotquest');
@@ -62,11 +63,11 @@ const onFailure = () => {
 if ('undefined' == typeof carrotquest) {
   let func = (t, e) => {
     return function() {
-      carrotquestasync.push(t, arguments);
+      carrotquestasyncPush(t, arguments);
     };
   };
   
-  const carrotquestasync = [];
+  const carrotquestasyncPush = createQueue('carrotquestasync');
   const publicMethods = ['connect', 'track', 'identify', 'auth', 'onReady', 'addCallback', 'removeCallback', 'trackMessageInteraction'];
   carrotquest = {
     settings: {}
@@ -77,7 +78,6 @@ if ('undefined' == typeof carrotquest) {
   }
   
   setInWindow('carrotquest', carrotquest, true);
-  setInWindow('carrotquestasync', carrotquestasync, true);
   
   injectScript(url, onSuccess, onFailure);
 }
